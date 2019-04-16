@@ -1,19 +1,476 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<!doctype html>
 <html>
-    <head>
-        <meta http-equiv='content-type' content='text/html; charset=UTF-8'>
-        <meta name="KEYWORDS" content="">
-        <meta name="DESCRIPTION" content="">
-        <meta name="VERSION" content="">
-        <link href="" rel="shortcut icon" type="image/x-icon">
-        <title></title>
-    </head>
-    <frameset rows='100%, *' frameborder=no framespacing=0 border=0>
-        <frame src="http://registry.jsonresume.org/urukalo" name=mainwindow frameborder=no framespacing=0 marginheight=0 marginwidth=0></frame>
-    </frameset>
-    <noframes>
-        <h2>Your browser does not support frames. We recommend upgrading your browser.</h2><br><br>
-        <center>Click <a href="http://registry.jsonresume.org/urukalo" >here</a> to enter the site.</center>
-    </noframes>
+	<head>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+	
+	<title>Milan Urukalo</title>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
+	
+	<style type="text/css">
+	@import url(
+	https://fonts.googleapis.com/css?family=Lato:400,700
+);
+body {
+	background: #fff;
+	font-family: Lato, sans-serif;
+	margin: 0 0 80px;
+}
+a {
+	color: #2ecc71;
+}
+a:focus,
+a:hover {
+	color: #f1c40f;
+	text-decoration: none;
+}
+p {
+	line-height: 1.5;
+	margin: 0;
+}
+p + p {
+	margin-top: 10px;
+}
+h1,
+h2,
+h3,
+h4 {
+	margin-top: 0
+}
+section {
+	margin-top: 30px;
+}
+li {
+	line-height: 1.8;
+	list-style: none;
+}
+li:before {
+	content: "\f052";
+	float: left;
+	font: 13px Octicons;
+	margin-top: 6px;
+	margin-left: -20px;
+	opacity: .1;
+	position: absolute;
+}
+blockquote {
+	border-left: 5px solid #e7e9ec;
+	font-size: 14px;
+}
+em {
+	color: #95a5a6;
+	font-weight: normal;
+	font-style: normal;
+}
+h4 span:first-child {
+	color: #000;
+	font-weight: bold;
+}
+.container {
+	max-width: 750px;
+	padding: 0 30px;
+}
+.col-sm-6 {
+	margin-bottom: 10px;
+}
+.col-sm-12 h4 {
+	margin-top: 12px; 
+}
+.col-sm-12 + .col-sm-12 {
+	margin-top: 30px;
+}
+#header {
+	background: #f4f6f6;
+	padding: 50px 0;
+	margin-bottom: 30px;
+}
+#header h2 {
+	color: #95a5a6;
+	font-size: 24px;
+}
+#content h3 {
+	color: #f1c40f;
+	font-size: 26px;
+	margin-top: -4px;
+}
+#content aside {
+	text-align: right;
+	padding-right: 30px;
+}
+#profiles .network {
+	text-transform: capitalize;
+}
+#work .position,
+#volunteer .position {
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+#education .area {
+	font-weight: bold;
+}
+#education .area:before {
+	content: "\f0d7";
+	font: 16px Octicons;
+	margin-right: 6px;
+}
+#education .studyType {
+	margin-left: 25px;
+}
+#awards .summary,
+#publications .summary {
+	margin-top: 8px;
+}
+#publications .website a:before {
+	content: attr(href);
+}
+
+@media (min-width: 480px) {
+	.strike-through {
+		border-top: 1px solid #f4f6f6;
+		height: 20px;
+		margin-top: 12px;
+		margin-bottom: -2px;
+		position: relative;
+	}
+	.strike-through span,
+	.strike-through a {
+		background: #fff;
+		position: absolute;
+	}
+	.strike-through span:first-child {
+		padding-right: 20px;
+		margin-top: -12px;
+	}
+	.strike-through span + span {
+		font-size: 14px;
+		margin-top: -10px;
+		padding-left: 20px;
+		right: 0;
+	}
+}
+@media (max-width: 768px) {
+	.col-sm-6:last-child {
+		margin-bottom: 0px;
+	}
+	#content aside {
+		margin-bottom: 20px;
+		padding-right: 0;
+		text-align: left;
+	}
+	#publications .website a:before {
+		content: "View publication";
+	}
+}
+@media (max-width: 480px) {
+	h1 {
+		font-size: 26px;
+	}
+	.date {
+		font-size: 14px;
+		margin-bottom: 5px;
+	}
+	.strike-through span:first-child {
+		margin-bottom: 7px;
+	}
+	.strike-through span {
+		display: block;
+	}	
+	#header {
+		margin-bottom: 10px;
+		padding: 40px 0;
+	}
+	#actions {
+		display: none;
+	}
+}
+
+	</style>
+	
+	</head>
+	<body>
+	
+	<header id="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-9 col-sm-push-3">
+					<h1>
+						Milan Urukalo
+					</h1>
+					<h2>
+						BackEnd Developer
+					</h2>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div id="content" class="container">
+
+	<section id="contact" class="row">
+		<aside class="col-sm-3">
+			<h3>Contact</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+			<div class="col-sm-6">
+				<strong>Email</strong>
+				<div class="email">urukalo@gmail.com</div>
+			</div>
+			<div class="col-sm-6">
+				<strong>Phone</strong>
+				<div class="phone">+381-63/73-74-317</div>
+			</div>
+			<div class="col-sm-6">
+				<strong>Website</strong>
+				<div class="website">
+					<a href="http://milan.urukalo.com">http://milan.urukalo.com</a>
+				</div>
+			</div>
+			</div>
+		</div>
+	</section>
+	<section id="about" class="row">
+		<aside class="col-sm-3">
+			<h3>About</h3>
+		</aside>
+		<div class="col-sm-9">
+			<p>BackEnd Developer (php, mysql, js, html, css) with 10+ years  experience and software development education</p>
+		</div>
+	</section>
+	<section id="profiles" class="row">
+		<aside class="col-sm-3">
+			<h3>Profiles</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+				<div class="col-sm-6">
+					<strong class="network">
+						linkedIn
+					</strong>
+					<div class="username">
+						<div class="url">
+							<a href="https://rs.linkedin.com/in/urukalo">urukalo</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<strong class="network">
+						Twitter
+					</strong>
+					<div class="username">
+						<div class="url">
+							<a href="https://twitter.com/urukalo">urukalo</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<strong class="network">
+						GitHub
+					</strong>
+					<div class="username">
+						<div class="url">
+							<a href="http://github.com/urukalo">urukalo</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="work" class="row">
+		<aside class="col-sm-3">
+			<h3>Work</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Chord Agency</span>
+					<span class="date">
+						2017-05-01 — 
+					</span>
+				</h4>
+				<div class="website pull-right">
+					<a href="chord.agency">chord.agency</a>
+				</div>
+				<div class="position">
+					Senior web developer
+				</div>
+				<div class="summary">
+					<p>Chord Agency is the new way of doing software. Come to us with an idea and we realise it: through custom APIs constructed on bedrock databases; wrapped in lovingly-crafted front-end, all garnished with tasty branding and UX. All our products are proudly made in -house in Belgrade - Serbia - and we stand behind all that we do .You &#x27;ll soon find our passion for the work is infectious, and we don&#x27;t down tools until the product is a polished,gleaming gem.</p>
+				</div>
+				<h4>Highlights</h4>
+				<ul class="highlights">
+					<li class="bullet">Refactor and rebuild platform for medical workers management</li>
+					<li class="bullet">Working on startup tempest.app project</li>
+				</ul>
+			</div>
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Cloud Horizon</span>
+					<span class="date">
+						2015-12-01 — 2017-05-01
+					</span>
+				</h4>
+				<div class="website pull-right">
+					<a href="www.cloudhorizon.com">www.cloudhorizon.com</a>
+				</div>
+				<div class="position">
+					BackEnd Developer
+				</div>
+				<div class="summary">
+					<p>Cloud Horizon is a digital agency that specializes in transactional web and mobile applications, ecommerce and warehouse management systems.</p>
+				</div>
+				<h4>Highlights</h4>
+				<ul class="highlights">
+					<li class="bullet">Rewrite from C# to PHP and deploy on AWS http://www.kilshay.com</li>
+					<li class="bullet">Develop admin panel to follow orders with API for https://www.globex2000.ca</li>
+					<li class="bullet">Develop full Clinic schedule management for http://www.tapmedical.ca</li>
+				</ul>
+			</div>
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Link Group</span>
+					<span class="date">
+						2013-12-01 — 2015-12-01
+					</span>
+				</h4>
+				<div class="website pull-right">
+					<a href="www.link.co.rs">www.link.co.rs</a>
+				</div>
+				<div class="position">
+					PHP Programmer
+				</div>
+				<div class="summary">
+					<p>LINK group is a leading multinational company with more then 15 years of success in professional education and certification in the fields of information technology and contemporary business. It is successful locally in Serbia, Bosnia and Herzegovina, Romania, Ukraine, Republic of Moldova and United States of America and through distance learning it brings together students from over 120 countries worldwide.</p>
+				</div>
+				<h4>Highlights</h4>
+				<ul class="highlights">
+					<li class="bullet">Maintenance and implementation of new functionalities of DLS and TLS.</li>
+					<li class="bullet">Active upgrade and maintain this sites: - education http://www.it-akademija.com/ http://www.biznis-akademija.com/ http://www.its.edu.rs/ http://www.savremena-gimnazija.edu.rs/ - learning http://matematika.edu.rs/ http://www.razvoj-karijere.com/ http://www.mala-matura.com/ http://www.link-elearning.com/site/ http://www.linkedu.tv/ ..and more</li>
+				</ul>
+			</div>
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>SRB d.o.o</span>
+					<span class="date">
+						2003-01-01 — 2005-01-01
+					</span>
+				</h4>
+				<div class="website pull-right">
+					<a href="http://www.srb.rs">http://www.srb.rs</a>
+				</div>
+				<div class="position">
+					Computer repair technician
+				</div>
+				<div class="summary">
+					<p>SRB d.o.o  was established in 1991 to provide information technology solutions for small to medium sized businesses. We are a technology intensive corporation geared to deliver state-of-the-art solutions in areas of integrated business solutions, system applications, product development, Internet/Intranet applications and communication &amp; network management services.</p>
+				</div>
+				<h4>Highlights</h4>
+				<ul class="highlights">
+					<li class="bullet">configuring new hardware, installing and updating software packages, and creating and maintaining computer networks.</li>
+				</ul>
+			</div>
+			</div>
+		</div>
+	</section>
+
+	
+	<section id="education" class="row">
+		<aside class="col-sm-3">
+			<h3>Education</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Specialist vocational engineer of electrical and computer engineering,</span>
+					<span class="date">
+						2013-09-01 — 2015-12-01
+					</span>
+				</h4>
+				<div class="area">
+					Information Technology
+				</div>
+				<div class="studyType">
+					Bachelor
+				</div>
+			</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	
+	<section id="skills" class="row">
+		<aside class="col-sm-3">
+			<h3>Skills</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+			<div class="col-sm-6">
+				<div class="name">
+					<h4>Web Development</h4>
+				</div>
+				<ul class="keywords">
+					<li>PHP</li>
+					<li>HTML</li>
+					<li>CSS</li>
+					<li>Javascript</li>
+					<li>MySql</li>
+				</ul>
+			</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="languages" class="row">
+		<aside class="col-sm-3">
+			<h3>Languages</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+			<div class="col-sm-6">
+				<div class="language">
+					<strong>Serbian</strong>
+				</div>
+				<div class="fluency">
+					Native speaker
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="language">
+					<strong>English</strong>
+				</div>
+				<div class="fluency">
+					Good
+				</div>
+			</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="interests" class="row">
+		<aside class="col-sm-3">
+			<h3>Interests</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+			<div class="col-sm-6">
+				<div class="name">
+					<h4>Cycling</h4>
+				</div>
+			</div>
+			</div>
+		</div>
+	</section>
+	
+
+	</div>
+	
+	</body>
 </html>
+
 
