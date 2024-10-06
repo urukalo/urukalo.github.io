@@ -1,14 +1,17 @@
+/* Basic reset for all elements */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body styles */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
 }
 
+/* Header styles */
 header {
     background: #333;
     color: #fff;
@@ -16,6 +19,7 @@ header {
     text-align: center;
 }
 
+/* Navigation styles */
 nav ul {
     list-style: none;
 }
@@ -30,6 +34,7 @@ nav ul li a {
     text-decoration: none;
 }
 
+/* Intro section styles */
 .intro {
     padding: 100px 0;
 }
@@ -44,6 +49,7 @@ nav ul li a {
     margin-bottom: 20px;
 }
 
+/* Call-to-action button styles */
 .cta-btn {
     background: #28a745;
     color: #fff;
@@ -56,11 +62,13 @@ nav ul li a {
     background: #218838;
 }
 
+/* General section styles */
 .section {
     padding: 60px 20px;
     text-align: center;
 }
 
+/* Project card styles */
 .project-card {
     background: #f9f9f9;
     padding: 20px;
@@ -68,6 +76,7 @@ nav ul li a {
     border-radius: 10px;
 }
 
+/* Footer styles */
 footer {
     background: #333;
     color: #fff;
@@ -79,4 +88,87 @@ footer .social-links a {
     color: #fff;
     margin: 0 10px;
     text-decoration: none;
+}
+
+/* Contact Form Section */
+#contact {
+    background-color: #f4f4f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Contact form styling */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left; /* Align the labels to the left */
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Inputs and text area styling */
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
+}
+
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #007bff;
+    background-color: #fff;
+    outline: none;
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical; /* Allow only vertical resizing */
+}
+
+/* Button styling */
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive design for the form */
+@media screen and (max-width: 768px) {
+    #contact {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    #contact h2 {
+        font-size: 2rem;
+    }
 }
