@@ -5,118 +5,172 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Milan Urukalo CV</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #A0A0A0;
-            display: flex;
-            justify-content: center;
-            padding-top: 50px;
-            scroll-behavior: smooth;
-        }
-
-        .box {
-            background-color: #C0C0C0;
-            margin: 0 10px;
-            padding: 20px;
-            border: 1px solid black;
-            box-shadow: 10px 10px 20px #666;
-        }
-
-        .box h2 {
-            background-color: #2F2F5F;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            margin: -20px -20px 10px;
-        }
-
-        .navigator,
-        .links {
-            width: 150px;
-        }
-
-        .navigator a, .links a {
-            display: block;
-            background-color: #D0D0D0;
-            color: black;
-            text-decoration: none;
-            margin: 5px 0;
-            padding: 10px;
-            text-align: center;
-            border-radius: 3px;
-            box-shadow: inset 1px 1px 3px #888;
-        }
-
-        .navigator a:hover, .links a:hover {
-            background-color: #AAA;
-        }
-
-        .content {
-            height: 400px;
-            overflow-y: auto;
-            width: 300px;
-        }
-
-        .content p {
-            margin: 10px 0;
-            line-height: 1.5;
-        }
-
-        .container {
-            display: flex;
-        }
-    </style>
+    <link rel="stylesheet" href="style-milan.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <div class="container">
+        <div class="hamburger-menu">
+            <i class="fas fa-bars"></i>
+        </div>
         <div class="box navigator">
             <h2>Navigator</h2>
-            <a href="#about">About</a>
-            <a href="#work">Work Experience</a>
-            <a href="#volunteer">Volunteer</a>
-            <a href="#contact">Contact</a>
-            <a href="#education">Education</a>
-            <a href="#skills">Skills</a>
-            <a href="#interests">Interests</a>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#work">Work Experience</a>
+                <a href="#volunteer">Volunteer</a>
+                <a href="#contact">Contact</a>
+                <a href="#education">Education</a>
+                <a href="#skills">Skills</a>
+                <a href="#interests">Interests</a>
+            </nav>
         </div>
         <div class="box content">
-            <h2 id="about">Milan Urukalo</h2>
-            <p>Tech Lead/Senior Backend Developer</p>
+            <div class="avatar-container">
+                <img src="https://www.gravatar.com/avatar/7f0a9775c71242584d2901a22425987e?s=200&r=pg&d=mm" alt="Milan Urukalo" class="avatar">
+            </div>
+            <h1>Milan Urukalo</h1>
+            <p class="job-title">Tech Lead/Senior Backend Developer</p>
 
-            <h2>About</h2>
-            <p>Results-driven Tech Lead/Senior Backend Developer with over 10 years of experience...</p>
+            <div id="about" class="section">
+                <h2>About</h2>
+                <p>Results-driven Tech Lead/Senior Backend Developer with over 10 years of experience and a robust background in software development. Proficient in PHP, MySQL, JavaScript (JS), TypeScript (TS), NodeJS, serverless architecture, and AWS cloud services.</p>
+            </div>
 
-            <h2 id="work">Work Experience</h2>
-            <p><strong>December 2019 – Present</strong><br>
-            Technical Team Lead/Senior Backend Developer...</p>
-            <!-- Add more work experience here -->
+            <div id="work" class="section">
+                <h2>Work Experience</h2>
+                <h3>December 2019 – Present</h3>
+                <h4>Technical Team Lead/Senior Backend Developer</h4>
+                <p>Levi 9 delivery center in Serbia providing professional nearshore software development services. The company is dedicated to delivering optimal IT solutions and support to its customers. As a Backend Dev/Team Lead, contributed to key projects such as Agenda9, Culture Game, Data Bridge V2, VidaXL, and VWFPS, utilizing technologies like NodeJS, Serverless FW, and AWS.</p>
+                <h5>Highlights</h5>
+                <ul>
+                    <li>Backend Dev/Team Lead on Agenda9 project - Tech stack: NodeJS/Angular/Serverless FW/AWS</li>
+                    <li>Backend Dev/Team Lead on Culture Game project - Tech stack: NodeJS/Angular/Serverless FW/AWS/Websockets</li>
+                    <li>Backend Dev on Data Bridge V2 project - Tech stack: PHP/Symfony/DDD/Serverless PHP with Bref</li>
+                    <li>Backend Dev/Team Lead on VidaXL client project - Tech stack: NodeJS/Vue/Microservices/GCP</li>
+                    <li>Tech Team Lead on VWPFS client projects - Tech stack: NodeJS/Serverless(AWS SDK)/AWS</li>
+                </ul>
 
-            <h2 id="volunteer">Volunteer</h2>
-            <p>PHP Srbija: Member of the Management Board...</p>
-            <!-- Add more volunteer experience here -->
+                <h3>June 2019 – November 2019</h3>
+                <h4>Senior Web Developer</h4>
+                <p>Empowering admissions and enrollment teams, Element451 facilitates efficient processes and personalized engagements with prospective students.</p>
+                <h5>Highlights</h5>
+                <ul>
+                    <li>Contributed to Element451 API, upgrading legacy components and reducing technical debt.</li>
+                </ul>
 
-            <h2 id="contact">Contact</h2>
-            <p>Konstantina Jovanovica...<br>
-            <strong>Phone:</strong> (+381)63/73-74-317<br>
-            <strong>Email:</strong> urukalo@gmail.com</p>
+                <h3>November 2018 – May 2019</h3>
+                <h4>Senior Web Developer</h4>
+                <p>Renhead focuses on innovative software design to simplify workflows and adapt to future changes. Contributed to platform refactoring and improved test coverage.</p>
+                <h5>Highlights</h5>
+                <ul>
+                    <li>Worked on Renhead platform, refactor, improve test coverage</li>
+                </ul>
 
-            <h2 id="education">Education</h2>
-            <p>2013 Present<br>
-            ICT College - Specialist...</p>
-            <!-- Add more education details here -->
+                <h3>May 2017 – November 2018</h3>
+                <h4>Senior Web Developer</h4>
+                <p>Chord Agency delivers custom software solutions, from APIs to front-end, all developed in-house. Notable projects include platform refactoring for medical workers management and contributing to the startup tempest.app project.</p>
+                <h5>Highlights</h5>
+                <ul>
+                    <li>Refactor and rebuild platform for medical workers management</li>
+                    <li>Worked on startup tempest.app project</li>
+                </ul>
 
-            <h2 id="skills">Skills</h2>
-            <p>Web Development, PHP, Laravel, NodeJS, Serverless, AWS...</p>
+                <h3>December 2015 – May 2017</h3>
+                <h4>Backend Developer</h4>
+                <p>Cloud Horizon specializes in transactional web and mobile applications, ecommerce, and warehouse management systems. Key contributions include rewriting from C# to PHP and deploying on AWS, developing admin panels, and creating Clinic schedule management systems.</p>
+                <h5>Highlights</h5>
+                <ul>
+                    <li>Rewrite from C# to PHP and deploy on AWS http://www.kilshay.com</li>
+                    <li>Develop admin panel to follow orders with API for https://www.globex2000.ca</li>
+                    <li>Develop full Clinic schedule management for http://www.tapmedical.ca</li>
+                </ul>
 
-            <h2 id="interests">Interests</h2>
-            <p>Cycling</p>
-            <p>Running</p>
-            <p>Home Automation</p>
-            <p>3D Printing</p>
-            <p>Arduino Programming</p>
-            <p>Rockets Development Watcher</p>
-            <p>HomeLAB Maintainer</p>
+                <h3>December 2013 – December 2015</h3>
+                <h4>PHP Programmer</h4>
+                <p>LINK Group is a leading multinational company specializing in professional education and certification in information technology and contemporary business. Responsible for the maintenance, implementation of new functionalities, and active upgrading of various educational sites.</p>
+                <h5>Highlights</h5>
+                <ul>
+                    <li>Maintenance and implementation of new functionalities of DLS and TLS.</li>
+                    <li>Active upgrade and maintain this sites:
+                        <ul>
+                            <li>Education: http://www.it-akademija.com/, http://www.biznis-akademija.com/, http://www.its.edu.rs/, http://www.savremena-gimnazija.edu.rs/</li>
+                            <li>Learning: http://matematika.edu.rs/, http://www.razvoj-karijere.com/, http://www.mala-matura.com/, http://www.link-elearning.com/site/, http://www.linkedu.tv/ and more</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>January 2003 – January 2005</h3>
+                <h4>Computer Repair Technician</h4>
+                <p>SRB d.o.o was established in 1991 to provide information technology solutions for small to medium-sized businesses. Key responsibilities included configuring new hardware, installing and updating software packages, and creating and maintaining computer networks.</p>
+                <h5>Highlights</h5>
+                <ul>
+                    <li>Configuring new hardware, installing and updating software packages, and creating and maintaining computer networks.</li>
+                </ul>
+            </div>
+
+            <div id="volunteer" class="section">
+                <h2>Volunteer</h2>
+                <h3>PHP Srbija</h3>
+                <h4>August 2019 – Present</h4>
+                <h5>Member of the Management Board</h5>
+                <p>Part of the three-member management board. Responsibilities include organizing PHP meetups.</p>
+                <h6>Highlights</h6>
+                <ul>
+                    <li>Organizing PHP meetups</li>
+                </ul>
+
+                <h3>Laravel Srbija</h3>
+                <h4>June 2017 – Present</h4>
+                <h5>One of Meetup Hosts</h5>
+                <p>Part of the three-member team that organizes Laravel meetings in Serbia.</p>
+                <h6>Highlights</h6>
+                <ul>
+                    <li>Organized 10+ Laravel meetups</li>
+                    <li>Spoke at the meetups 4 times</li>
+                </ul>
+            </div>
+
+            <div id="contact" class="section">
+                <h2>Contact</h2>
+                <p>Konstantina Jovanovica ***<br>
+                Beograd, Srbija 11000 RS<br>
+                <strong>Phone:</strong> (+381)63/73-74-317<br>
+                <strong>Email:</strong> urukalo@gmail.com</p>
+            </div>
+
+            <div id="education" class="section">
+                <h2>Education</h2>
+                <h3>2013 - Present</h3>
+                <h4>ICT College - Specialist</h4>
+                <p>Electronic Communications - Specialist Applied Engineer of Electrical and Computer Engineering</p>
+
+                <h3>2011 - 2013</h3>
+                <h4>ICT College - Bachelor appl</h4>
+                <p>Internet Technologies – Applied Engineer of Electrical and Computer Engineering</p>
+
+                <h3>1998 - Present</h3>
+                <h4>School of Electrical Engineering - Bachelor</h4>
+                <p>Computer Science and Information Theory (Incomplete)</p>
+            </div>
+
+            <div id="skills" class="section">
+                <h2>Skills</h2>
+                <p>Web Development (Senior), PHP, Laravel, TDD, DDD, HTML, CSS, JavaScript, MySQL, NodeJS, Serverless, AWS</p>
+            </div>
+
+            <div id="interests" class="section">
+                <h2>Interests</h2>
+                <ul>
+                    <li>Cycling</li>
+                    <li>Running</li>
+                    <li>Home Automation</li>
+                    <li>3D Printing</li>
+                    <li>Arduino Programming</li>
+                    <li>Rockets Development Watcher</li>
+                    <li>HomeLAB Maintainer</li>
+                </ul>
+            </div>
         </div>
         <div class="box links">
             <h2>Links</h2>
@@ -126,5 +180,11 @@
             <a href="https://linkedin.com/in/urukalo" target="_blank">LinkedIn</a>
         </div>
     </div>
+
+    <script>
+        document.querySelector('.hamburger-menu').addEventListener('click', function() {
+            document.querySelector('.navigator').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
