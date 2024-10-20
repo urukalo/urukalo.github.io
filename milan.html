@@ -5,68 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Milan Urukalo CV</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #A0A0A0;
-            display: flex;
-            justify-content: center;
-            padding-top: 50px;
-            scroll-behavior: smooth;
-        }
-
-        .box {
-            background-color: #C0C0C0;
-            margin: 0 10px;
-            padding: 20px;
-            border: 1px solid black;
-            box-shadow: 10px 10px 20px #666;
-        }
-
-        .box h2 {
-            background-color: #2F2F5F;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            margin: -20px -20px 10px;
-        }
-
-        .navigator,
-        .links {
-            width: 150px;
-        }
-
-        .navigator a, .links a {
-            display: block;
-            background-color: #D0D0D0;
-            color: black;
-            text-decoration: none;
-            margin: 5px 0;
-            padding: 10px;
-            text-align: center;
-            border-radius: 3px;
-            box-shadow: inset 1px 1px 3px #888;
-        }
-
-        .navigator a:hover, .links a:hover {
-            background-color: #AAA;
-        }
-
-        .content {
-            height: 400px;
-            overflow-y: auto;
-            width: 300px;
-        }
-
-        .content p {
-            margin: 10px 0;
-            line-height: 1.5;
-        }
-
-        .container {
-            display: flex;
-        }
-    </style>
+    <link rel="stylesheet" href="styles-milan.css">
 </head>
 <body>
     <div class="container">
@@ -124,6 +63,20 @@
             <a href="https://github.com/urukalo" target="_blank">GitHub</a>
             <a href="https://twitter.com/urukalo" target="_blank">X</a>
             <a href="https://linkedin.com/in/urukalo" target="_blank">LinkedIn</a>
+        </div>
+    </div>
+
+    <div class="hamburger-menu">
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+        <div class="menu">
+            <a href="#about">About</a>
+            <a href="#work">Work Experience</a>
+            <a href="#volunteer">Volunteer</a>
+            <a href="#contact">Contact</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#interests">Interests</a>
         </div>
     </div>
 </body>
