@@ -54,8 +54,7 @@ body {
 }
 
 .content {
-    height: auto;
-    max-height: 400px;
+    height: 100vh;
     overflow-y: auto;
     width: 100%;
     max-width: 600px;
