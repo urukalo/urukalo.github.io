@@ -174,10 +174,11 @@
         </div>
         <div class="box links">
             <h2>Links</h2>
-            <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i> <span>YouTube</span></a>
-            <a href="https://github.com/urukalo" target="_blank"><i class="fab fa-github"></i> <span>GitHub</span></a>
-            <a href="https://twitter.com/urukalo" target="_blank"><i class="fab fa-twitter"></i> <span>X</span></a>
-            <a href="https://linkedin.com/in/urukalo" target="_blank"><i class="fab fa-linkedin"></i> <span>LinkedIn</span></a>
+            <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i><span class="link-text">YouTube</span></a>
+            <a href="https://github.com/urukalo" target="_blank"><i class="fab fa-github"></i><span class="link-text">GitHub</span></a>
+            <a href="https://twitter.com/urukalo" target="_blank"><i class="fab fa-twitter"></i><span class="link-text">Twitter</span></a>
+            <a href="https://linkedin.com/in/urukalo" target="_blank"><i class="fab fa-linkedin"></i><span class="link-text">LinkedIn</span></a>
+            <a href="#" id="print-link"><i class="fas fa-print"></i><span class="link-text">Print CV</span></a>
         </div>
     </div>
 
@@ -186,18 +187,10 @@
             document.querySelector('.navigator').classList.toggle('active');
         });
 
-        // JavaScript to handle bottom link text visibility based on screen size
-        function handleBottomLinkTextVisibility() {
-            const links = document.querySelectorAll('.links a span');
-            if (window.innerWidth <= 768) {
-                links.forEach(link => link.style.display = 'none');
-            } else {
-                links.forEach(link => link.style.display = 'inline');
-            }
-        }
-
-        window.addEventListener('resize', handleBottomLinkTextVisibility);
-        window.addEventListener('load', handleBottomLinkTextVisibility);
+        document.getElementById('print-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.print();
+        });
     </script>
 </body>
 </html>
