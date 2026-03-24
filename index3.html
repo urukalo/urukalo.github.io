@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milan Urukalo - Tech Lead | Senior Backend Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0891b2;
+            --dark: #1e293b;
+            --text: #334155;
+            --text-light: #64748b;
+            --bg: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --accent: #8b5cf6;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background: var(--bg-secondary);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        header .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        header .subtitle {
+            font-size: 1.5rem;
+            font-weight: 500;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+            font-family: 'Fira Code', monospace;
+        }
+
+        header .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            display: inline-flex;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .contact-item svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .left-column {
+            grid-column: 1 / 2;
+        }
+
+        .right-column {
+            grid-column: 2 / 3;
+        }
+
+        @media (max-width: 900px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+            
+            .left-column,
+            .right-column {
+                grid-column: 1 / -1;
+            }
+        }
+
+        /* Section Cards */
+        section {
+            background: var(--bg);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        section:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        section h2 svg {
+            color: var(--primary);
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Skills Tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+        }
+
+        .skill-category {
+            margin-bottom: 2rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Experience Cards */
+        .experience-item {
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(8px);
+            background: #fff;
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .experience-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .experience-company {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .experience-date {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            background: var(--bg);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .experience-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .experience-highlights {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience-highlights li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .experience-highlights li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.75rem;
+        }
+
+        .tech-badge {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            color: var(--text);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .project-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .project-title {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tech {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: var(--primary);
+        }
+
+        /* Timeline for Education */
+        .education-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border-left: 3px solid var(--success);
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-date {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            white-space: nowrap;
+            min-width: 100px;
+        }
+
+        .education-details h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .education-details p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Volunteer Section */
+        .volunteer-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 12px;
+            border: 1px solid #bae6fd;
+        }
+
+        .volunteer-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .volunteer-icon {
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* Interests */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+
+        .interest-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .interest-item:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .interest-item svg {
+            flex-shrink: 0;
+        }
+
+        .interest-item:hover svg {
+            filter: brightness(0) invert(1);
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Summary Box */
+        .summary-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid #fcd34d;
+            margin-bottom: 2rem;
+        }
+
+        .summary-box h3 {
+            color: #92400e;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .summary-box p {
+            color: #78350f;
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            header {
+                background: white !important;
+                color: var(--dark) !important;
+                padding: 2rem 0;
+            }
+
+            header::before {
+                display: none;
+            }
+
+            .contact {
+                background: none !important;
+            }
+
+            main {
+                max-width: 100%;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            section {
+                box-shadow: none;
+                border: 1px solid var(--border);
+                page-break-inside: avoid;
+            }
+
+            body {
+                background: white !important;
+            }
+
+            .social-links {
+                display: none;
+            }
+
+            a {
+                color: black;
+                text-decoration: underline;
+            }
+        }
+
+        /* ANIMATION */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            animation: fadeIn 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        section:nth-child(1) { animation-delay: 0.1s; }
+        section:nth-child(2) { animation-delay: 0.2s; }
+        section:nth-child(3) { animation-delay: 0.3s; }
+        section:nth-child(4) { animation-delay: 0.4s; }
+        section:nth-child(5) { animation-delay: 0.5s; }
+        section:nth-child(6) { animation-delay: 0.6s; }
+        section:nth-child(7) { animation-delay: 0.7s; }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-4px);
+        }
+
+        /* Responsive Typography */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header .subtitle {
+                font-size: 1.1rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            .contact {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-links {
+                flex-direction: column;
+            }
+        }
+
+        /* ============================================
+           SPEAKING & EDUCATE SECTION STYLES
+           ============================================ */
+        
+        #speaking {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #speaking h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--dark);
+            font-weight: 600;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        #speaking .speaking-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        #speaking .speaking-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--primary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #speaking .speaking-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            border-left-color: var(--secondary);
+        }
+
+        #speaking .card-header {
+            margin-bottom: 15px;
+        }
+
+        #speaking .card-header h3 {
+            font-size: 1.25rem;
+            margin: 0 0 10px 0;
+            color: var(--dark);
+        }
+
+        #speaking .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        #speaking .badge.event {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        #speaking .badge.date {
+            background: #f5f5f5;
+            color: #666;
+        }
+
+        #speaking .card-description {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        #speaking .card-highlights {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+
+        #speaking .card-highlights li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        #speaking .card-highlights li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        #speaking .link-button {
+            display: inline-block;
+            text-decoration: none;
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        #speaking .link-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        #speaking .speaking-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 30px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            flex-wrap: wrap;
+            border: 1px solid var(--border);
+        }
+
+        #speaking .stat-item {
+            text-align: center;
+        }
+
+        #speaking .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        #speaking .stat-label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+
+        /* Responsive adjustments for speaking section */
+        @media (max-width: 768px) {
+            #speaking {
+                padding: 40px 15px;
+            }
+            
+            #speaking .speaking-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            #speaking .speaking-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            #speaking .stat-item {
+                text-align: center;
+            }
+            
+            #speaking h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>Milan Urukalo</h1>
+            <p class="subtitle">Tech Lead | Senior Backend Developer</p>
+            <div class="badge">10+ Years Experience</div>
+            
+            <div class="contact">
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    </svg>
+                    <span>Zemun, Belgrade, Serbia</span>
+                </div>
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
+                    <span>(+381) 63 73 74 xxx</span>
+                </div>
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <span>milan.urukalo@example.com</span>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/urukalo" class="social-link" target="_blank" rel="noopener">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/urukalo" class="social-link" target="_blank" rel="noopener">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="https://twitter.com/urukalo" class="social-link" target="_blank" rel="noopener">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.304l-7.26 9.265h3.066l2.18-4.696h3.653l-3.94 5.75 3.62 8.26h-4.314l-2.237-4.768-2.693 4.768h-4.62l3.283-3.29-3.48-5.086h4.516l2.163-4.215zm-1.344 5.29l-2.454 5.195-1.512-2.18 4.024-3.015zM15.465 19.6l2.787-5.616 3.67 5.616h-2.844l-.816-4.346-2.797 4.346z"/></svg>
+                    Twitter
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="left-column">
+            <!-- Professional Summary -->
+            <section>
+                <div class="summary-box">
+                    <h3>📍 Professional Summary</h3>
+                    <p><strong>Results-driven Tech Lead and Senior Backend Developer with 10+ years</strong> of experience designing and building scalable backend systems. Expert in <strong>PHP, Node.js, Serverless Architecture, and AWS cloud services</strong>. Proven track record of leading development teams, reducing technical debt, and delivering high-impact solutions for clients in Serbia and internationally.</p>
+                </div>
+
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    Skills
+                </h2>
+                <div class="skills-container">
+                    <span class="skill-tag">Web Development (Senior)</span>
+                    <span class="skill-tag">PHP</span>
+                    <span class="skill-tag">Laravel</span>
+                    <span class="skill-tag">TDD</span>
+                    <span class="skill-tag">DDD</span>
+                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">JavaScript/TypeScript</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">NodeJS</span>
+                    <span class="skill-tag">Serverless</span>
+                    <span class="skill-tag">AWS</span>
+                </div>
+
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                    </svg>
+                    Experience
+                </h2>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <span class="experience-title">Tech Lead / Senior Backend Developer</span>
+                            <span class="experience-company"> | Levi 9 Delivery Center</span>
+                        </div>
+                        <span class="experience-date">Dec 2019 – Present</span>
+                    </div>
+                    <p class="experience-desc">Nearshore software development services in Serbia. Led multiple client projects with modern tech stack.</p>
+                    <ul class="experience-highlights">
+                        <li><strong>VWFPS:</strong> NodeJS + Serverless (AWS SDK) + AWS</li>
+                        <li><strong>VidaXL:</strong> NodeJS + Vue + Microservices + GCP</li>
+                        <li><strong>Data Bridge V2:</strong> PHP + Symfony + DDD + Serverless PHP (Bref)</li>
+                        <li><strong>Culture Game:</strong> NodeJS + Angular + Serverless FW + AWS + Websockets</li>
+                        <li><strong>Agenda9:</strong> NodeJS + Angular + Serverless FW + AWS</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <span class="experience-title">Senior Web Developer</span>
+                            <span class="experience-company"> | Element451</span>
+                        </div>
+                        <span class="experience-date">Jun 2019 – Nov 2019</span>
+                    </div>
+                    <p class="experience-desc">Admissions and enrollment platform for educational institutions.</p>
+                    <ul class="experience-highlights">
+                        <li>Contributed to core API development, modernizing legacy components</li>
+                        <li>Reduced technical debt through systematic refactoring</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <span class="experience-title">Senior Web Developer</span>
+                            <span class="experience-company"> | Renhead</span>
+                        </div>
+                        <span class="experience-date">Nov 2018 – May 2019</span>
+                    </div>
+                    <p class="experience-desc">Innovative software design company simplifying workflows.</p>
+                    <ul class="experience-highlights">
+                        <li>Led platform refactoring initiatives</li>
+                        <li>Significantly improved test coverage</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <span class="experience-title">Senior Web Developer</span>
+                            <span class="experience-company"> | Chord Agency</span>
+                        </div>
+                        <span class="experience-date">May 2017 – Nov 2018</span>
+                    </div>
+                    <p class="experience-desc">Custom software solutions, from APIs to front-end development.</p>
+                    <ul class="experience-highlights">
+                        <li>Rebuilt platform for medical worker management from scratch</li>
+                        <li>Contributed to startup project (tempest.app)</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <span class="experience-title">Backend Developer</span>
+                            <span class="experience-company"> | Cloud Horizon</span>
+                        </div>
+                        <span class="experience-date">Dec 2015 – May 2017</span>
+                    </div>
+                    <p class="experience-desc">Transactional web & mobile applications, e-commerce, warehouse management.</p>
+                    <ul class="experience-highlights">
+                        <li>Developed full Clinic Schedule Management system (tapmedical.ca)</li>
+                        <li>Built admin panel with API integration (globex2000.ca)</li>
+                        <li>Migrated kilshay.com from C# to PHP on AWS</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <span class="experience-title">PHP Programmer</span>
+                            <span class="experience-company"> | LINK Group</span>
+                        </div>
+                        <span class="experience-date">Dec 2013 – Dec 2015</span>
+                    </div>
+                    <p class="experience-desc">Multinational company specializing in professional IT education and certification.</p>
+                    <ul class="experience-highlights">
+                        <li>Maintained 15+ educational websites</li>
+                        <li>Implemented new functionalities across multiple platforms</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <span class="experience-title">Computer Repair Technician</span>
+                            <span class="experience-company"> | SRB d.o.o</span>
+                        </div>
+                        <span class="experience-date">Jan 2003 – Jan 2005</span>
+                    </div>
+                    <p class="experience-desc">IT solutions for small to medium businesses.</p>
+                    <ul class="experience-highlights">
+                        <li>Configured hardware and installed software packages</li>
+                        <li>Maintained enterprise computer networks</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div class="right-column">
+            <!-- Education -->
+            <section>
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                    Education
+                </h2>
+                <div class="education-item">
+                    <span class="education-date">2013 – Present</span>
+                    <div class="education-details">
+                        <h4>ICT College - Specialist</h4>
+                        <p>Electronic Communications – Applied Engineer of Electrical and Computer Engineering</p>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <span class="education-date">2011 – 2013</span>
+                    <div class="education-details">
+                        <h4>ICT College - Bachelor</h4>
+                        <p>Internet Technologies – Applied Engineer of Electrical and Computer Engineering</p>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <span class="education-date">1998 – 2003</span>
+                    <div class="education-details">
+                        <h4>School of Electrical Engineering</h4>
+                        <p>Computer Science and Information Theory (Incomplete)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Community Work -->
+            <section>
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    </svg>
+                    Community & Volunteer
+                </h2>
+                <div class="volunteer-item">
+                    <div class="volunteer-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--dark); margin-bottom: 0.25rem;">PHP Srbija</h3>
+                        <p style="color: var(--primary); font-size: 0.85rem;">Management Board Member | Aug 2019 – Present</p>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.5rem;">
+                            • Part of three-member leadership team<br>
+                            • Organize PHP meetups across Serbia
+                        </p>
+                    </div>
+                </div>
+                <div class="volunteer-item">
+                    <div class="volunteer-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--dark); margin-bottom: 0.25rem;">Laravel Srbija</h3>
+                        <p style="color: var(--primary); font-size: 0.85rem;">Meetup Host | Jun 2017 – Present</p>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.5rem;">
+                            • Part of core three-member team<br>
+                            • <strong>10+ Laravel meetups</strong> organized<br>
+                            • <strong>4+ public talks</strong> delivered
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interests -->
+            <section>
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                    </svg>
+                    Interests
+                </h2>
+                <div class="interests-grid">
+                    <div class="interest-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        <span>HomeLAB Maintainer</span>
+                    </div>
+                    <div class="interest-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                        <span>Rockets Development</span>
+                    </div>
+                    <div class="interest-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                        </svg>
+                        <span>Arduino Programming</span>
+                    </div>
+                    <div class="interest-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        <span>3D Printing</span>
+                    </div>
+                    <div class="interest-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                        <span>Home Automation</span>
+                    </div>
+                    <div class="interest-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                        <span>Running & Cycling</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Speaking & Educate Section (Moved to Bottom) -->
+            <section id="speaking">
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+                    </svg>
+                    Speaking & Educate
+                </h2>
+                
+                <div class="speaking-grid">
+                    <!-- PHPSrbija Meetup #16 -->
+                    <div class="speaking-card">
+                        <div class="card-header">
+                            <h3>CI/CD & SemaphoreCI Deployment</h3>
+                            <span class="badge event">PHPSrbija Meetup #16</span>
+                            <span class="badge date">October 2018</span>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">
+                                Demonstrated Continuous Integration/Continuous Deployment processes 
+                                using SemaphoreCI, AWS EC2, and Docker containerization for PHP applications.
+                            </p>
+                            <ul class="card-highlights">
+                                <li>✅ SemaphoreCI setup and configuration</li>
+                                <li>✅ AWS EC2 deployment workflows</li>
+                                <li>✅ Docker containerization basics</li>
+                                <li>✅ Elastic BeanStalk for Laravel</li>
+                            </ul>
+                            <a href="https://www.youtube.com/watch?v=gfvWOjrNhSg" 
+                               target="_blank" 
+                               class="link-button"
+                               aria-label="Watch video on YouTube">
+                                📺 Watch Video on YouTube
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Laravel Serbia Meetup -->
+                    <div class="speaking-card">
+                        <div class="card-header">
+                            <h3>Docker for Localhost Development</h3>
+                            <span class="badge event">Laravel Serbia Meetup #12</span>
+                            <span class="badge date">June 2018</span>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">
+                                Taught developers how to use Docker containers for local development 
+                                environments, eliminating "it works on my machine" issues.
+                            </p>
+                            <ul class="card-highlights">
+                                <li>✅ Docker containers for PHP/Laravel</li>
+                                <li>✅ Local development environment setup</li>
+                                <li>✅ Container best practices</li>
+                                <li>✅ Container orchestration basics</li>
+                            </ul>
+                            <a href="https://www.youtube.com/watch?v=Yg8GQn7GRYs" 
+                               target="_blank" 
+                               class="link-button"
+                               aria-label="Watch video on YouTube">
+                                📺 Watch Video on YouTube
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Community Leadership -->
+                    <div class="speaking-card">
+                        <div class="card-header">
+                            <h3>Community Leadership</h3>
+                            <span class="badge event">PHP Srbija</span>
+                            <span class="badge date">August 2019 - Present</span>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">
+                                Member of Management Board organizing PHP meetups across Serbia. 
+                                Hosted 10+ Laravel meetups and facilitated technical knowledge sharing.
+                            </p>
+                            <ul class="card-highlights">
+                                <li>✅ PHP Srbija Management Board</li>
+                                <li>✅ Organized 10+ Laravel Meetups</li>
+                                <li>✅ Technical Mentor for Junior Developers</li>
+                                <li>✅ Open Source Community Contributor</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stats Section -->
+                <div class="speaking-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Speaking Engagements</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">YouTube Videos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Meetups Organized</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">64+</span>
+                        <span class="stat-label">GitHub Repositories</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" aria-label="Scroll to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </button>
+
+    <script>
+        // Scroll to top button visibility
+        window.addEventListener('scroll', () => {
+            const scrollTopBtn = document.querySelector('.scroll-top');
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Intersection Observer for section animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
+
