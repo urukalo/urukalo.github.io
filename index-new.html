@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milan Urukalo — Tech Lead & Senior Backend Developer</title>
+    <meta name="description" content="Milan Urukalo — Results-driven Tech Lead and Senior Backend Developer with 10+ years of experience in PHP, NodeJS, AWS, and serverless architecture.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Source Serif 4', Georgia, serif;
+            background-color: #F7F5F0;
+            color: #1A1A1A;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .ui-text, label, button, nav {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+        }
+
+        a {
+            color: #D4860A;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            min-height: 100vh;
+            background-color: #F7F5F0;
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                grid-template-columns: 320px 1fr;
+            }
+        }
+
+        /* ─── SIDEBAR ─── */
+        .sidebar {
+            display: none;
+            flex-direction: column;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="diag" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="10" y2="10" stroke="%23333" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect fill="%231A1A1A" width="100" height="100"/><rect fill="url(%23diag)" width="100" height="100"/></svg>') center/cover no-repeat, #1A1A1A;
+            position: relative;
+            min-height: 100vh;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #D4860A;
+        }
+
+        @media (min-width: 1024px) {
+            .sidebar {
+                display: flex;
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                overflow-y: auto;
+            }
+        }
+
+        .sidebar-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding: 3rem 2rem 2rem 2.5rem;
+            flex: 1;
+        }
+
+        .sidebar-footer {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 1.25rem 2rem;
+            text-align: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.25);
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 3px solid #D4860A;
+            overflow: hidden;
+            box-shadow: 0 0 0 6px rgba(212,134,10,0.12), 0 8px 32px rgba(0,0,0,0.4);
+            margin: 0 auto;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sidebar-identity {
+            text-align: center;
+        }
+
+        .sidebar-identity h1 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+
+        .sidebar-identity .title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #D4860A;
+            margin-top: 0.4rem;
+        }
+
+        .sidebar-identity .subtitle {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.62rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(212,134,10,0.7);
+            margin-top: 0.1rem;
+        }
+
+        .sidebar-divider {
+            height: 1px;
+            background: rgba(255,255,255,0.08);
+            margin: 0 -0.5rem;
+        }
+
+        .sidebar-section h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.58rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #D4860A;
+            margin-bottom: 0.75rem;
+        }
+
+        .sidebar-section h3::before,
+        .sidebar-section h3::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.12);
+        }
+
+        .sidebar-section p {
+            font-family: 'Source Serif 4', serif;
+            font-size: 0.8rem;
+            line-height: 1.75;
+            color: rgba(255,255,255,0.68);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.75rem;
+        }
+
+        .skill-tag {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.62rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.6rem;
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 9999px;
+            color: rgba(255,255,255,0.7);
+            background: transparent;
+            cursor: default;
+            transition: all 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            border-color: #D4860A;
+            color: #D4860A;
+        }
+
+        .interests-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .interests-list li {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.76rem;
+            color: rgba(255,255,255,0.6);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            list-style: none;
+        }
+
+        .interests-list li::before {
+            content: '';
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #D4860A;
+            flex-shrink: 0;
+        }
+
+        /* ─── MOBILE HEADER ─── */
+        .mobile-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: #1A1A1A;
+            border-bottom: 3px solid #D4860A;
+            padding: 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-header {
+                display: none;
+            }
+        }
+
+        .mobile-header img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            border: 2px solid #D4860A;
+            flex-shrink: 0;
+        }
+
+        .mobile-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+
+        .mobile-header .subtitle {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #D4860A;
+            margin-top: 0.3rem;
+        }
+
+        /* ─── MOBILE SKILLS BAR ─── */
+        .mobile-skills-bar {
+            display: block;
+            background: oklch(0.965 0.006 80);
+            border-bottom: 1px solid oklch(0.87 0.008 80);
+            padding: 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-skills-bar {
+                display: none;
+            }
+        }
+
+        .mobile-skills-bar p {
+            font-family: 'Source Serif 4', serif;
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 1.25rem;
+        }
+
+        .mobile-skills-bar h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #D4860A;
+            margin-bottom: 0.6rem;
+        }
+
+        .mobile-skills-bar .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .mobile-skills-bar .tag {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.55rem;
+            border: 1px solid oklch(0.87 0.008 80);
+            border-radius: 9999px;
+            color: #555;
+        }
+
+        /* ─── MAIN CONTENT ─── */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            background: #F7F5F0;
+        }
+
+        /* ─── HERO SECTION ─── */
+        .hero {
+            background: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663470553686/KxWwNYa4cJTNDAiXNxqq3o/hero-bg-BYejY8Li5umfTjAQKDbXwX.webp') center top/cover no-repeat, #F7F5F0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(247,245,240,0.6) 0%, rgba(247,245,240,0.92) 60%, rgba(247,245,240,0.98) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 3rem 1.5rem 0 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-content {
+                padding: 4rem 3.5rem 0 3.5rem;
+            }
+        }
+
+        .hero-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #D4860A;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 1.5rem;
+            height: 2px;
+            background: #D4860A;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: #1A1A1A;
+            letter-spacing: -0.03em;
+            line-height: 0.95;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            font-weight: 400;
+            color: #2a2a2a;
+        }
+
+        .hero .subtitle {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #555;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-accent {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #D4860A 30%, rgba(212,134,10,0.3) 70%, transparent 100%);
+            margin-bottom: 0;
+        }
+
+        .stats-row {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            background: rgba(26,26,26,0.04);
+            border-top: 1px solid rgba(26,26,26,0.08);
+        }
+
+        .stat {
+            padding: 1.25rem 1.5rem;
+            border-right: 1px solid rgba(26,26,26,0.08);
+            text-align: center;
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #D4860A;
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .stat-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #888;
+            margin-top: 0.3rem;
+        }
+
+        /* ─── SECTION STYLES ─── */
+        section {
+            position: relative;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-number {
+            font-family: 'Playfair Display', serif;
+            font-weight: 300;
+            font-style: italic;
+            color: oklch(0.87 0.008 80);
+            font-size: clamp(4rem, 8vw, 6rem);
+            line-height: 1;
+            letter-spacing: -0.02em;
+            user-select: none;
+            flex-shrink: 0;
+        }
+
+        .section-header-content {
+            padding-top: 1.5rem;
+        }
+
+        .accent-line {
+            display: block;
+            width: 2.5rem;
+            height: 2px;
+            background: #D4860A;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: #1A1A1A;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .section-subtitle {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #999;
+            margin-top: 0.4rem;
+        }
+
+        /* ─── EXPERIENCE SECTION ─── */
+        #experience {
+            padding: 3rem 1.5rem;
+            background: #F7F5F0;
+        }
+
+        @media (min-width: 1024px) {
+            #experience {
+                padding: 4rem 3.5rem;
+            }
+        }
+
+        .timeline {
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: oklch(0.87 0.008 80);
+        }
+
+        .job {
+            position: relative;
+            padding-left: 2.5rem;
+            padding-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .job.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .job:last-child {
+            padding-bottom: 0;
+        }
+
+        .job::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.35rem;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            border: 2px solid #D4860A;
+            background: #F7F5F0;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .job:first-child::before {
+            background: #D4860A;
+        }
+
+        .job-period {
+            display: inline-block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #D4860A;
+            background: rgba(212,134,10,0.08);
+            padding: 0.18rem 0.55rem;
+            border-radius: 2px;
+            margin-bottom: 0.6rem;
+        }
+
+        .job h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: 700;
+            color: #1A1A1A;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+
+        .job-company {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #666;
+            margin-top: 0.15rem;
+            letter-spacing: 0.02em;
+        }
+
+        .job-description {
+            font-family: 'Source Serif 4', serif;
+            font-size: 0.85rem;
+            line-height: 1.75;
+            color: #444;
+            margin: 0.75rem 0;
+            max-width: 60ch;
+        }
+
+        .job-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .job-highlight {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-family: 'Source Serif 4', serif;
+            font-size: 0.82rem;
+            line-height: 1.65;
+            color: #333;
+        }
+
+        .job-highlight::before {
+            content: '';
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #D4860A;
+            flex-shrink: 0;
+            margin-top: 0.5rem;
+        }
+
+        .job-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .job-tag {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.18rem 0.55rem;
+            border: 1px solid oklch(0.87 0.008 80);
+            border-radius: 9999px;
+            color: #666;
+            background: transparent;
+        }
+
+        /* ─── EDUCATION SECTION ─── */
+        #education {
+            padding: 3rem 1.5rem;
+            background: oklch(0.965 0.006 80);
+        }
+
+        @media (min-width: 1024px) {
+            #education {
+                padding: 4rem 3.5rem;
+            }
+        }
+
+        .education-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .education-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding: 1.5rem 1.75rem;
+            background: #F7F5F0;
+            border: 1px solid oklch(0.87 0.008 80);
+            border-left: 3px solid #D4860A;
+            border-radius: 2px;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .education-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .education-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1A1A1A;
+            letter-spacing: -0.01em;
+        }
+
+        .education-field {
+            font-family: 'Source Serif 4', serif;
+            font-size: 0.85rem;
+            color: #555;
+            margin-top: 0.2rem;
+            font-style: italic;
+        }
+
+        .education-institution {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #888;
+            margin-top: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .education-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.3rem;
+            flex-shrink: 0;
+        }
+
+        .education-period {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #D4860A;
+        }
+
+        .education-note {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.58rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #aaa;
+            background: oklch(0.92 0.006 80);
+            padding: 0.15rem 0.45rem;
+            border-radius: 2px;
+        }
+
+        /* ─── VOLUNTEER SECTION ─── */
+        #volunteer {
+            padding: 3rem 1.5rem;
+            background: #F7F5F0;
+        }
+
+        @media (min-width: 1024px) {
+            #volunteer {
+                padding: 4rem 3.5rem;
+            }
+        }
+
+        .volunteer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .volunteer-card {
+            height: 100%;
+            padding: 1.75rem;
+            background: #F7F5F0;
+            border: 1px solid oklch(0.87 0.008 80);
+            border-top: 3px solid #D4860A;
+            border-radius: 2px;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .volunteer-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .volunteer-org {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #D4860A;
+            margin-bottom: 0.5rem;
+        }
+
+        .volunteer-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1A1A1A;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.25rem;
+        }
+
+        .volunteer-period {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.68rem;
+            color: #999;
+            letter-spacing: 0.06em;
+            margin-bottom: 1.25rem;
+        }
+
+        .volunteer-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .volunteer-highlight {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-family: 'Source Serif 4', serif;
+            font-size: 0.82rem;
+            line-height: 1.65;
+            color: #444;
+        }
+
+        .volunteer-highlight::before {
+            content: '';
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #D4860A;
+            flex-shrink: 0;
+            margin-top: 0.5rem;
+        }
+
+        /* ─── DIVIDER ─── */
+        .divider {
+            height: 1px;
+            background: oklch(0.87 0.008 80);
+            margin: 0 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .divider {
+                margin: 0 3.5rem;
+            }
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            padding: 1.75rem 1.5rem;
+            border-top: 1px solid oklch(0.87 0.008 80);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #bbb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            footer {
+                padding: 1.75rem 3.5rem;
+            }
+        }
+
+        footer a {
+            color: #D4860A;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+                    <div class="avatar">
+                        <img src="https://www.gravatar.com/avatar/7f0a9775c71242584d2901a22425987e?s=500&r=pg&d=mm" alt="Milan Urukalo">
+                    </div>
+                    <div class="sidebar-identity">
+                        <h1>Milan Urukalo</h1>
+                        <p class="title">Tech Lead</p>
+                        <p class="subtitle">Senior Backend Developer</p>
+                    </div>
+                </div>
+
+                <div class="sidebar-divider"></div>
+
+                <div class="sidebar-section">
+                    <h3>About</h3>
+                    <p>Results-driven Tech Lead/Senior Backend Developer with over 10 years of experience and a robust background in software development. Proficient in PHP, MySQL, JavaScript, TypeScript, NodeJS, serverless architecture, and AWS cloud services.</p>
+                </div>
+
+                <div class="sidebar-divider"></div>
+
+                <div class="sidebar-section">
+                    <h3>Core Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">NodeJS</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Serverless</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">TDD</span>
+                        <span class="skill-tag">DDD</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-divider"></div>
+
+                <div class="sidebar-section">
+                    <h3>Interests</h3>
+                    <ul class="interests-list">
+                        <li>Cycling</li>
+                        <li>Running</li>
+                        <li>Home Automation</li>
+                        <li>3D Printing</li>
+                        <li>Arduino Programming</li>
+                        <li>Rockets Development Watcher</li>
+                        <li>HomeLAB Maintainer</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-divider"></div>
+
+                <div class="sidebar-section">
+                    <h3>Location</h3>
+                    <p style="margin-top: 0.5rem;">Serbia</p>
+                </div>
+            </div>
+            <div class="sidebar-footer">milan.urukalo.com</div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <!-- MOBILE HEADER -->
+            <div class="mobile-header">
+                <img src="https://www.gravatar.com/avatar/7f0a9775c71242584d2901a22425987e?s=200&r=pg&d=mm" alt="Milan Urukalo">
+                <div>
+                    <h1>Milan Urukalo</h1>
+                    <p class="subtitle">Tech Lead / Senior Backend Dev</p>
+                </div>
+            </div>
+
+            <!-- MOBILE SKILLS BAR -->
+            <div class="mobile-skills-bar">
+                <p>Results-driven Tech Lead/Senior Backend Developer with over 10 years of experience. Proficient in PHP, NodeJS, TypeScript, serverless architecture, and AWS cloud services.</p>
+                <h4>Core Skills</h4>
+                <div class="tags">
+                    <span class="tag">PHP</span>
+                    <span class="tag">Laravel</span>
+                    <span class="tag">NodeJS</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Serverless</span>
+                    <span class="tag">AWS</span>
+                    <span class="tag">MySQL</span>
+                </div>
+                <h4>Interests</h4>
+                <div class="tags">
+                    <span class="tag">Cycling</span>
+                    <span class="tag">Running</span>
+                    <span class="tag">Home Automation</span>
+                    <span class="tag">3D Printing</span>
+                    <span class="tag">Arduino</span>
+                </div>
+            </div>
+
+            <!-- HERO SECTION -->
+            <section class="hero">
+                <div class="hero-content">
+                    <div class="hero-eyebrow">Curriculum Vitae</div>
+                    <h1>Milan<br><em>Urukalo</em></h1>
+                    <p class="subtitle">Tech Lead · Senior Backend Developer</p>
+                    <div class="hero-accent"></div>
+                </div>
+                <div class="stats-row">
+                    <div class="stat">
+                        <div class="stat-value">10+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">7</div>
+                        <div class="stat-label">Companies</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">5+</div>
+                        <div class="stat-label">Projects at Levi9</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">10+</div>
+                        <div class="stat-label">Laravel Meetups</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EXPERIENCE SECTION -->
+            <section id="experience">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <div class="section-header-content">
+                        <span class="accent-line"></span>
+                        <h2>Work Experience</h2>
+                        <p class="section-subtitle">7 positions · 23+ years</p>
+                    </div>
+                </div>
+
+                <div class="timeline">
+                    <div class="job">
+                        <div class="job-period">Dec 2019 – Present</div>
+                        <h3>Technical Team Lead / Senior Backend Developer</h3>
+                        <p class="job-company">Levi9</p>
+                        <p class="job-description">Levi9 delivery center in Serbia providing professional nearshore software development services. The company is dedicated to delivering optimal IT solutions and support to its customers.</p>
+                        <ul class="job-highlights">
+                            <li class="job-highlight">Backend Dev/Team Lead on Agenda9 — NodeJS / Angular / Serverless FW / AWS</li>
+                            <li class="job-highlight">Backend Dev/Team Lead on Culture Game — NodeJS / Angular / Serverless FW / AWS / WebSockets</li>
+                            <li class="job-highlight">Backend Dev on Data Bridge V2 — PHP / Symfony / DDD / Serverless PHP with Bref</li>
+                            <li class="job-highlight">Backend Dev/Team Lead on VidaXL — NodeJS / Vue / Microservices / GCP</li>
+                            <li class="job-highlight">Tech Team Lead on VWPFS — NodeJS / Serverless (AWS SDK) / AWS</li>
+                        </ul>
+                        <div class="job-tags">
+                            <span class="job-tag">NodeJS</span>
+                            <span class="job-tag">Serverless</span>
+                            <span class="job-tag">AWS</span>
+                            <span class="job-tag">PHP</span>
+                            <span class="job-tag">Angular</span>
+                            <span class="job-tag">Vue</span>
+                        </div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-period">Jun 2019 – Nov 2019</div>
+                        <h3>Senior Web Developer</h3>
+                        <p class="job-company">Element451</p>
+                        <p class="job-description">Empowering admissions and enrollment teams, Element451 facilitates efficient processes and personalized engagements with prospective students.</p>
+                        <ul class="job-highlights">
+                            <li class="job-highlight">Contributed to Element451 API, upgrading legacy components and reducing technical debt.</li>
+                        </ul>
+                        <div class="job-tags">
+                            <span class="job-tag">PHP</span>
+                            <span class="job-tag">API</span>
+                            <span class="job-tag">Legacy Modernization</span>
+                        </div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-period">Nov 2018 – May 2019</div>
+                        <h3>Senior Web Developer</h3>
+                        <p class="job-company">Renhead</p>
+                        <p class="job-description">Renhead focuses on innovative software design to simplify workflows and adapt to future changes.</p>
+                        <ul class="job-highlights">
+                            <li class="job-highlight">Platform refactoring and improved test coverage.</li>
+                        </ul>
+                        <div class="job-tags">
+                            <span class="job-tag">PHP</span>
+                            <span class="job-tag">Refactoring</span>
+                            <span class="job-tag">TDD</span>
+                        </div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-period">May 2017 – Nov 2018</div>
+                        <h3>Senior Web Developer</h3>
+                        <p class="job-company">Chord Agency</p>
+                        <p class="job-description">Chord Agency delivers custom software solutions, from APIs to front-end, all developed in-house.</p>
+                        <ul class="job-highlights">
+                            <li class="job-highlight">Refactored and rebuilt platform for medical workers management.</li>
+                            <li class="job-highlight">Contributed to startup tempest.app project.</li>
+                        </ul>
+                        <div class="job-tags">
+                            <span class="job-tag">PHP</span>
+                            <span class="job-tag">Laravel</span>
+                            <span class="job-tag">APIs</span>
+                        </div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-period">Dec 2015 – May 2017</div>
+                        <h3>Backend Developer</h3>
+                        <p class="job-company">Cloud Horizon</p>
+                        <p class="job-description">Cloud Horizon specializes in transactional web and mobile applications, ecommerce, and warehouse management systems.</p>
+                        <ul class="job-highlights">
+                            <li class="job-highlight">Rewrote platform from C# to PHP and deployed on AWS (kilshay.com).</li>
+                            <li class="job-highlight">Developed admin panel for order tracking with API for globex2000.ca.</li>
+                            <li class="job-highlight">Built full Clinic schedule management system for tapmedical.ca.</li>
+                        </ul>
+                        <div class="job-tags">
+                            <span class="job-tag">PHP</span>
+                            <span class="job-tag">AWS</span>
+                            <span class="job-tag">Ecommerce</span>
+                        </div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-period">Dec 2013 – Dec 2015</div>
+                        <h3>PHP Programmer</h3>
+                        <p class="job-company">LINK Group</p>
+                        <p class="job-description">LINK Group is a leading multinational company specializing in professional education and certification in IT and contemporary business.</p>
+                        <ul class="job-highlights">
+                            <li class="job-highlight">Maintenance and implementation of new functionalities for DLS and TLS.</li>
+                            <li class="job-highlight">Actively upgraded and maintained multiple educational and e-learning platforms.</li>
+                        </ul>
+                        <div class="job-tags">
+                            <span class="job-tag">PHP</span>
+                            <span class="job-tag">Education</span>
+                            <span class="job-tag">E-learning</span>
+                        </div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-period">Jan 2003 – Jan 2005</div>
+                        <h3>Computer Repair Technician</h3>
+                        <p class="job-company">SRB d.o.o</p>
+                        <p class="job-description">SRB d.o.o was established in 1991 to provide IT solutions for small to medium-sized businesses.</p>
+                        <ul class="job-highlights">
+                            <li class="job-highlight">Configured new hardware, installed and updated software packages.</li>
+                            <li class="job-highlight">Created and maintained computer networks.</li>
+                        </ul>
+                        <div class="job-tags">
+                            <span class="job-tag">Hardware</span>
+                            <span class="job-tag">Networking</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- EDUCATION SECTION -->
+            <section id="education">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <div class="section-header-content">
+                        <span class="accent-line"></span>
+                        <h2>Education</h2>
+                    </div>
+                </div>
+
+                <div class="education-list">
+                    <div class="education-card">
+                        <div class="education-header">
+                            <div class="education-info">
+                                <h3>Specialist Applied Engineer</h3>
+                                <p class="education-field">Electronic Communications</p>
+                                <p class="education-institution">ICT College</p>
+                            </div>
+                            <div class="education-meta">
+                                <span class="education-period">2013 – Present</span>
+                                <span class="education-note">Specialist</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="education-card">
+                        <div class="education-header">
+                            <div class="education-info">
+                                <h3>Bachelor of Applied Engineering</h3>
+                                <p class="education-field">Internet Technologies</p>
+                                <p class="education-institution">ICT College</p>
+                            </div>
+                            <div class="education-meta">
+                                <span class="education-period">2011 – 2013</span>
+                                <span class="education-note">Bachelor appl.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="education-card">
+                        <div class="education-header">
+                            <div class="education-info">
+                                <h3>Bachelor (Incomplete)</h3>
+                                <p class="education-field">Computer Science and Information Theory</p>
+                                <p class="education-institution">School of Electrical Engineering</p>
+                            </div>
+                            <div class="education-meta">
+                                <span class="education-period">1998 – Present</span>
+                                <span class="education-note">Incomplete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- VOLUNTEER SECTION -->
+            <section id="volunteer">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <div class="section-header-content">
+                        <span class="accent-line"></span>
+                        <h2>Community &amp; Volunteer</h2>
+                        <p class="section-subtitle">Giving back to the developer community</p>
+                    </div>
+                </div>
+
+                <div class="volunteer-grid">
+                    <div class="volunteer-card">
+                        <div class="volunteer-org">PHP Srbija</div>
+                        <h3>Member of the Management Board</h3>
+                        <p class="volunteer-period">Aug 2019 – Present</p>
+                        <ul class="volunteer-highlights">
+                            <li class="volunteer-highlight">Part of the three-member management board.</li>
+                            <li class="volunteer-highlight">Organizing PHP meetups.</li>
+                        </ul>
+                    </div>
+
+                    <div class="volunteer-card">
+                        <div class="volunteer-org">Laravel Srbija</div>
+                        <h3>Meetup Host</h3>
+                        <p class="volunteer-period">Jun 2017 – Present</p>
+                        <ul class="volunteer-highlights">
+                            <li class="volunteer-highlight">Part of the three-member team organizing Laravel meetings in Serbia.</li>
+                            <li class="volunteer-highlight">Organized 10+ Laravel meetups.</li>
+                            <li class="volunteer-highlight">Spoke at the meetups 4 times.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer>
+                <span>Milan Urukalo · 2026</span>
+                <a href="https://milan.urukalo.com" target="_blank" rel="noopener noreferrer">milan.urukalo.com</a>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Scroll reveal animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.08,
+                rootMargin: '0px 0px -30px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all reveal elements
+            const jobs = document.querySelectorAll('.job');
+            const eduCards = document.querySelectorAll('.education-card');
+            const volCards = document.querySelectorAll('.volunteer-card');
+
+            jobs.forEach(function(job) { observer.observe(job); });
+            eduCards.forEach(function(card) { observer.observe(card); });
+            volCards.forEach(function(card) { observer.observe(card); });
+        });
+    </script>
+</body>
+</html>
